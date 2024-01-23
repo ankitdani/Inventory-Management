@@ -1,14 +1,21 @@
 package org.vaadin.example.Entity;
 
-import javax.persistence.Entity;
+
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotEmpty;
+
 import java.util.Date;
 
 
 @Entity
 public class Donor {
+    @NotEmpty
     private String DonorName;
+    @NotEmpty
     private String DonationType;
+    @NotEmpty
     private String Quantity;
+    @NotEmpty
     private Date Date;
 
     public Donor() {
