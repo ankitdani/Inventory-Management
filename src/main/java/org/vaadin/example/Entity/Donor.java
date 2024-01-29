@@ -4,11 +4,18 @@ package org.vaadin.example.Entity;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotEmpty;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 
 @Entity
 public class Donor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotEmpty
     private String DonorName;
     @NotEmpty
