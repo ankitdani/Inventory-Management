@@ -2,12 +2,14 @@ package org.vaadin.example.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.vaadin.example.Entity.Donor;
 import org.vaadin.example.Repository.DonorRepository;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class DonationService {
     private DonorRepository donorRepository;
 

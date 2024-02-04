@@ -6,6 +6,8 @@ import com.vaadin.flow.theme.Theme;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * The entry point of the Spring Boot application.
@@ -14,9 +16,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * and some desktop browsers.
  *
  */
-@SpringBootApplication
+
+
 @PWA(name = "Project Base for Vaadin with Spring", shortName = "Project Base")
 @Theme("my-theme")
+@SpringBootApplication(scanBasePackages={"com.*"})
+@EntityScan( basePackages = {"com.*"} )
+@EnableJpaRepositories( basePackages = {"com.*"} )
+
 public class Application implements AppShellConfigurator {
 
     public static void main(String[] args) {

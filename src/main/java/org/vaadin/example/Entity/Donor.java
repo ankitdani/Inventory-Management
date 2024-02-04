@@ -1,13 +1,16 @@
 package org.vaadin.example.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.validation.constraints.NotEmpty;
 
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
+
 
 
 @Entity
@@ -16,23 +19,24 @@ public class Donor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
+
     private String DonorName;
-    @NotEmpty
+
     private String DonationType;
-    @NotEmpty
+
     private String Quantity;
-    @NotEmpty
-    private Date Date;
+
+    private Date DonationDate;
+
 
     public Donor() {
     }
 
-    public Donor(String donorName, String donationType, String quantity, java.util.Date date) {
+    public Donor(String donorName, String donationType, String quantity, Date donationDate) {
         DonorName = donorName;
         DonationType = donationType;
         Quantity = quantity;
-        Date = date;
+        DonationDate = donationDate;
     }
 
     public String getDonorName() {
@@ -59,11 +63,11 @@ public class Donor {
         Quantity = quantity;
     }
 
-    public java.util.Date getDate() {
-        return Date;
+    public Date getDonationDate() {
+        return DonationDate;
     }
 
-    public void setDate(java.util.Date date) {
-        Date = date;
+    public void setDonationDate(Date donationDate) {
+        DonationDate = donationDate;
     }
 }
